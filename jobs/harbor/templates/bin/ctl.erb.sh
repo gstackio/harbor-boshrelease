@@ -37,7 +37,7 @@ done
 ln -sfT /var/log/harbor $HARBOR_LOG_DIR/harbor-app-logs
 
 #Workaround to resolve the docker-compose libz issue
-sudo mount /tmp -o remount,exec
+# sudo mount /tmp -o remount,exec
 
 exec 1>> $HARBOR_LOG_DIR/ctl.stdout.log
 exec 2>> $HARBOR_LOG_DIR/ctl.stderr.log

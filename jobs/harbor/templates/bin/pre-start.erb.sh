@@ -64,7 +64,7 @@ function prepareFolderAndFile() {
   cp -f ${HARBOR_JOB_DIR}/config/harbor.yml  ${HARBOR_PACKAGE_DIR}/harbor.yml
 
   #Workaround to resolve the docker-compose libz issue
-  sudo mount /tmp -o remount,exec
+  # sudo mount /tmp -o remount,exec
 }
 
 # Process container network settings, such as ip address pool
