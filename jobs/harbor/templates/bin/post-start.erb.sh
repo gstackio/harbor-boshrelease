@@ -2,6 +2,14 @@
 
 set -e # exit immediately if a simple command exits with a non-zero status
 
+function prepend_datetime() {
+  awk -W interactive '{ system("echo -n [$(date +%FT%T%z)]"); print " " $0 }'
+}
+
+exec \
+    1> >(prepend_datetime >> /var/vcap/sys/log/harbor/post-start.log) \
+    2>&1
+
 source /var/vcap/packages/common/utils.sh
 
 waitForDBReady() {
